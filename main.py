@@ -42,7 +42,7 @@ try:
     os.environ["SERPAPI_API_KEY"] = serpapi_api_key
     os.environ["GOOGLE_API_KEY"] = gemini_api_key
 except KeyError:
-    st.error("API keys are not configured. Please ensure your keys are set as environment variables in the .env file.")
+    st.error("API keys are not configured. Please ensure your keys are set as environment variables in the streamlit dashboard secrets file.")
     st.stop()
 
 # Initialize chat history in Streamlit's session state
