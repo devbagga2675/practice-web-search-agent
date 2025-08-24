@@ -9,7 +9,7 @@ import serpapi
 import sys
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
+# Load environment variables from .env file``
 load_dotenv()
 
 # --- Streamlit UI Setup ---
@@ -31,8 +31,8 @@ st.write(
 try:
     # Use st.secrets to retrieve keys in a deployed Streamlit app.
     # It also works locally if you set up the secrets.toml file.
-    serpapi_api_key = st.secrets["SERPAPI_API_KEY"]
-    gemini_api_key = st.secrets["GOOGLE_API_KEY"]
+    serpapi_api_key = st.secrets["api_keys"]["SERPAPI_API_KEY"]
+    gemini_api_key = st.secrets["api_keys"]["GOOGLE_API_KEY"]
 
     if not all([serpapi_api_key, gemini_api_key]):
         st.error("API keys are not configured. Please ensure your keys are set as secrets in the Streamlit Cloud dashboard.")
