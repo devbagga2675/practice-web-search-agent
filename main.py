@@ -29,12 +29,16 @@ st.write(
 )
 # API Key Management
 try:
-    serpapi_api_key = os.getenv('SERPAPI_API_KEY')
-    gemini_api_key = os.getenv('GOOGLE_API_KEY')
+    # Use st.secrets to retrieve keys in a deployed Streamlit app.
+    # It also works locally if you set up the secrets.toml file.
+    serpapi_api_key = st.secrets["SERPAPI_API_KEY"]
+    gemini_api_key = st.secrets["GOOGLE_API_KEY"]
+
     if not all([serpapi_api_key, gemini_api_key]):
-        st.error("API keys are not configured. Please ensure your keys are set as environment variables in the .env file.")
+        st.error("API keys are not configured. Please ensure your keys are set as secrets in the Streamlit Cloud dashboard.")
         st.stop()
     
+    # Optional: Set as environment variables for downstream libraries
     os.environ["SERPAPI_API_KEY"] = serpapi_api_key
     os.environ["GOOGLE_API_KEY"] = gemini_api_key
 except KeyError:
