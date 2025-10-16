@@ -78,7 +78,7 @@ async def run_pipeline(user_prompt: str):
             return "Sorry, I encountered an error during the search."
 
     with st.spinner("2. Summarizing with Gemini..."):
-        llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
+        llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
         
         prompt_template = ChatPromptTemplate.from_messages([
             ("system", "You are an expert researcher. Provide an in-depth, well-structured answer to the user's prompt *only* by using the context provided."),
